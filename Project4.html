@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans with Animations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-orange: #ef644d;
+            --text-dark: #111111;
+            --text-muted: #555555;
+            --border-color: #111111;
+            --bg-light: #f3f3f3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .pricing-container {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+            max-width: 1100px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #ffffff;
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 0px rgba(0, 0, 0, 0.05);
+            /* ANIMATION: Smooth transition for card movement */
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+        }
+
+        /* ANIMATION: Card Lift on Hover */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* "Most popular" Featured Card Adjustments */
+        .card.featured {
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.08);
+            margin-top: -15px;
+            padding-top: 55px;
+        }
+
+        /* ANIMATION: Featured Card Lift on Hover */
+        .card.featured:hover {
+            transform: translateY(-23px);
+            box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .badge {
+            position: absolute;
+            top: -16px;
+            background-color: var(--primary-orange);
+            color: #ffffff;
+            padding: 6px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+        }
+
+        /* Typography */
+        .plan-name {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .currency {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-dark);
+            align-self: flex-start;
+            margin-top: 4px;
+        }
+
+        .card.featured .currency {
+            color: var(--primary-orange);
+        }
+
+        .price {
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .card.featured .price {
+            color: var(--primary-orange);
+        }
+
+        .period {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-left: 4px;
+        }
+
+        .description {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.4;
+            min-height: 40px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        hr {
+            width: 100%;
+            border: none;
+            border-top: 1px solid #cccccc;
+            margin-bottom: 24px;
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 35px;
+            flex-grow: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+            cursor: pointer;
+            /* ANIMATION: Smooth transition for option hover */
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        /* Custom SVG Checkmark Icon */
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            /* ANIMATION: Smooth transition for icon color changes */
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        /* ANIMATION: When cursor touches any option/feature item */
+        .feature-item:hover {
+            color: #000000;
+            transform: translateX(4px);
+            /* Shifts text slightly to the right */
+        }
+
+        .feature-item:hover .check-icon {
+            color: var(--primary-orange);
+            /* Turns checkmark orange */
+            transform: scale(1.1);
+            /* Gently enlarges checkmark */
+        }
+
+        /* Action Buttons */
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            /* ANIMATION: Smooth transition for button colors and sizes */
+            transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-outline {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* ANIMATION: Outline button hover state */
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: #ffffff;
+        }
+
+        .btn-solid {
+            background-color: var(--primary-orange);
+            color: #ffffff;
+        }
+
+        /* ANIMATION: Solid button hover state */
+        .btn-solid:hover {
+            background-color: #dc533c;
+            box-shadow: 0 4px 12px rgba(239, 100, 77, 0.3);
+        }
+
+        /* ANIMATION: Click physical effect for buttons */
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Responsive breakdown for smaller screens */
+        @media (max-width: 980px) {
+            .card.featured {
+                margin-top: 0;
+                padding-top: 40px;
+            }
+
+            .card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .badge {
+                top: -18px;
+            }
+
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pricing-container">
+
+        <div class="card">
+            <h2 class="plan-name">Basic</h2>
+            <div class="price-container">
+                <span class="currency">$</span>
+                <span class="price">9</span>
+                <span class="period">/mo</span>
+            </div>
+            <p class="description">Essential features<br>to get started.</p>
+            <hr>
+            <ul class="features-list">
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    1 user
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    5 projects
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    10 GB storage
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Email support
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Basic reports
+                </li>
+            </ul>
+            <button class="btn btn-outline">Choose Basic</button>
+        </div>
+
+        <div class="card featured">
+            <span class="badge">Most popular</span>
+            <h2 class="plan-name">Pro</h2>
+            <div class="price-container">
+                <span class="currency">$</span>
+                <span class="price">19</span>
+                <span class="period">/mo</span>
+            </div>
+            <p class="description">Advanced tools for<br>growing teams.</p>
+            <hr>
+            <ul class="features-list">
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    5 users
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    50 projects
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    100 GB storage
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Priority support
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Advanced reports
+                </li>
+            </ul>
+            <button class="btn btn-solid">Choose Pro</button>
+        </div>
+
+        <div class="card">
+            <h2 class="plan-name">Business</h2>
+            <div class="price-container">
+                <span class="currency">$</span>
+                <span class="price">49</span>
+                <span class="period">/mo</span>
+            </div>
+            <p class="description">Complete solution for<br>large organizations.</p>
+            <hr>
+            <ul class="features-list">
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Unlimited users
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Unlimited projects
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    1 TB storage
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    24/7 support
+                </li>
+                <li class="feature-item">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Custom reports
+                </li>
+            </ul>
+            <button class="btn btn-outline">Choose Business</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
