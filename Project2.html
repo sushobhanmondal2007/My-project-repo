@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer Portfolio Wireframe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Base Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
+            /* Mimics the handwritten wireframe style */
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            border: 3px solid #000000;
+            padding: 20px;
+        }
+
+        /* --- Header Styling --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .square-logo {
+            width: 24px;
+            height: 24px;
+            background-color: #1a1a1a;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        nav {
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-family: Arial, sans-serif;
+            /* Matches the clean sans-serif subtitle font in screenshot */
+            color: #7a7a7a;
+            font-size: 0.9rem;
+        }
+
+        /* --- Grid Structure (Middle Layout) --- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1.2fr;
+            border-top: 2px dashed #000000;
+            border-bottom: 2px dashed #000000;
+        }
+
+        /* Border Rules to mimic wireframe grid lines */
+        .grid-section {
+            padding: 20px;
+        }
+
+        .projects-col {
+            border-right: 2px solid #000000;
+            padding-left: 0;
+        }
+
+        .center-col {
+            display: flex;
+            flex-direction: column;
+            border-right: 2px solid #000000;
+        }
+
+        .experience-box {
+            border-bottom: 2px solid #000000;
+            flex: 1;
+        }
+
+        .opensource-box {
+            flex: 1;
+        }
+
+        .education-col {
+            padding-right: 0;
+        }
+
+        /* --- Content Typographies --- */
+        h2 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .link {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Column List Elements */
+        .project-item {
+            border: 1px solid #000000;
+            padding: 8px 10px;
+            margin-bottom: -1px;
+            /* Prevents double borders */
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            background-color: #fff;
+        }
+
+        /* Education Column List Elements */
+        .courses-title {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .courses-list {
+            list-style: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* --- Bottom Section: Reviews --- */
+        .reviews-section {
+            padding-top: 20px;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .review-card {
+            flex: 1;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            /* Rounded pill look from screenshot */
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .review-text {
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .author-name,
+        .author-title {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #999999;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo-area">
+                <div class="square-logo"></div>
+                <span class="logo-text">Sushobhan Mondal</span>
+            </div>
+            <nav>
+                <a href="#">Home</a> /
+                <a href="#">Projects</a> /
+                <a href="#">Articles</a> /
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Frontend Developer</h1>
+            <p>html only with proper layout, no styling</p>
+        </section>
+
+        <!-- Main Content Grid -->
+        <main class="main-grid">
+
+            <!-- Left Column: Projects -->
+            <section class="grid-section projects-col">
+                <h2>Projects</h2>
+                <div class="project-item">HTML Only Portfolio</div>
+                <div class="project-item">Calculator</div>
+                <div class="project-item">Quiz App</div>
+                <div class="project-item">Countdown Timer</div>
+                <div class="project-item">Product Upcoming Page</div>
+            </section>
+
+            <!-- Center Column: Experience & Open Source -->
+            <div class="center-col">
+                <section class="grid-section experience-box">
+                    <h2>Work Experience</h2>
+                    <h3>roadmap.sh</h3>
+                    <p>Solved all the frontend projects</p>
+                    <!-- আপনার GitHub লিঙ্কটি এখানে সেট করা হয়েছে -->
+                    <a href="https://github.com/sushobhanmondal2007" target="_blank" class="link">Visit my Profile</a>
+                </section>
+                <section class="grid-section opensource-box">
+                    <h2>OpenSource Work</h2>
+                    <p>Contributed to 50 opensource projects. Made my own projects with 200 GitHub Stars.</p>
+                    <!-- আপনার GitHub লিঙ্কটি এখানেও সেট করা হয়েছে -->
+                    <a href="https://github.com/sushobhanmondal2007" target="_blank" class="link">Visit my GitHub
+                        Profile</a>
+                </section>
+            </div>
+
+            <!-- Right Column: Education -->
+            <section class="grid-section education-col">
+                <h2>Education</h2>
+                <p>Graduated with 3.76 out of 4 CGPA. Won Acme Hackathon. Organized 30 sessions.</p>
+
+                <p class="courses-title">Courses I took:</p>
+                <ul class="courses-list">
+                    <li>- Object Oriented Programming</li>
+                    <li>- Data Structures and Algorithms</li>
+                    <li>- Web Engineering</li>
+                    <li>- Artificial Intelligence</li>
+                    <li>- Human Computer Interaction</li>
+                    <li>- Computer Graphics</li>
+                    <li>- Database Management Systems</li>
+                    <li>- Distributed Database Systems</li>
+                    <li>- Discreet Mathematics</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Footer Section: Reviews -->
+        <section class="reviews-section">
+            <h2>Reviews from my Teachers</h2>
+            <div class="cards-container">
+                <!-- Card 1 -->
+                <div class="review-card">
+                    <p class="review-text">John doe was a brilliant student; always stood out with his assignments.</p>
+                    <p class="author-name">Jane Doe</p>
+                    <p class="author-title">Assistant Professor</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="review-card">
+                    <p class="review-text">John doe was a brilliant student; always stood out with his assignments.</p>
+                    <p class="author-name">Jane Doe</p>
+                    <p class="author-title">Assistant Professor</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="review-card">
+                    <p class="review-text">John doe was a brilliant student; always stood out with his assignments.</p>
+                    <p class="author-name">Jane Doe</p>
+                    <p class="author-title">Assistant Professor</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
