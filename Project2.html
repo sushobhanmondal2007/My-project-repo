@@ -7,7 +7,6 @@
     <title>Frontend Developer Portfolio Wireframe</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- Base Reset & Typography --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -16,7 +15,6 @@
 
         body {
             font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
-            /* Mimics the handwritten wireframe style */
             background-color: #ffffff;
             color: #000000;
             padding: 20px;
@@ -31,7 +29,7 @@
             padding: 20px;
         }
 
-        /* --- Header Styling --- */
+
         header {
             display: flex;
             justify-content: space-between;
@@ -71,7 +69,7 @@
             text-decoration: underline;
         }
 
-        /* --- Hero Section --- */
+
         .hero {
             text-align: center;
             padding: 50px 0;
@@ -85,12 +83,11 @@
 
         .hero p {
             font-family: Arial, sans-serif;
-            /* Matches the clean sans-serif subtitle font in screenshot */
             color: #7a7a7a;
             font-size: 0.9rem;
         }
 
-        /* --- Grid Structure (Middle Layout) --- */
+
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr 1.2fr;
@@ -98,7 +95,7 @@
             border-bottom: 2px dashed #000000;
         }
 
-        /* Border Rules to mimic wireframe grid lines */
+
         .grid-section {
             padding: 20px;
         }
@@ -127,7 +124,7 @@
             padding-right: 0;
         }
 
-        /* --- Content Typographies --- */
+
         h2 {
             font-size: 1.3rem;
             font-weight: normal;
@@ -158,18 +155,18 @@
             text-decoration: underline;
         }
 
-        /* Projects Column List Elements */
+
         .project-item {
             border: 1px solid #000000;
             padding: 8px 10px;
             margin-bottom: -1px;
-            /* Prevents double borders */
+
             font-family: Arial, sans-serif;
             font-size: 0.85rem;
             background-color: #fff;
         }
 
-        /* Education Column List Elements */
+
         .courses-title {
             margin-top: 15px;
             margin-bottom: 5px;
@@ -182,7 +179,7 @@
             line-height: 1.5;
         }
 
-        /* --- Bottom Section: Reviews --- */
+
         .reviews-section {
             padding-top: 20px;
         }
@@ -198,7 +195,7 @@
             flex: 1;
             border: 2px solid #000000;
             border-radius: 25px;
-            /* Rounded pill look from screenshot */
+
             padding: 20px;
             background-color: #ffffff;
         }
@@ -222,7 +219,7 @@
 <body>
 
     <div class="container">
-        <!-- Header Section -->
+
         <header>
             <div class="logo-area">
                 <div class="square-logo"></div>
@@ -236,16 +233,16 @@
             </nav>
         </header>
 
-        <!-- Hero Section -->
+
         <section class="hero">
             <h1>Frontend Developer</h1>
             <p>html only with proper layout, no styling</p>
         </section>
 
-        <!-- Main Content Grid -->
+
         <main class="main-grid">
 
-            <!-- Left Column: Projects -->
+
             <section class="grid-section projects-col">
                 <h2>Projects</h2>
                 <div class="project-item">HTML Only Portfolio</div>
@@ -255,25 +252,25 @@
                 <div class="project-item">Product Upcoming Page</div>
             </section>
 
-            <!-- Center Column: Experience & Open Source -->
+
             <div class="center-col">
                 <section class="grid-section experience-box">
                     <h2>Work Experience</h2>
                     <h3>roadmap.sh</h3>
                     <p>Solved all the frontend projects</p>
-                    <!-- আপনার GitHub লিঙ্কটি এখানে সেট করা হয়েছে -->
+
                     <a href="https://github.com/sushobhanmondal2007" target="_blank" class="link">Visit my Profile</a>
                 </section>
                 <section class="grid-section opensource-box">
                     <h2>OpenSource Work</h2>
                     <p>Contributed to 50 opensource projects. Made my own projects with 200 GitHub Stars.</p>
-                    <!-- আপনার GitHub লিঙ্কটি এখানেও সেট করা হয়েছে -->
+
                     <a href="https://github.com/sushobhanmondal2007" target="_blank" class="link">Visit my GitHub
                         Profile</a>
                 </section>
             </div>
 
-            <!-- Right Column: Education -->
+
             <section class="grid-section education-col">
                 <h2>Education</h2>
                 <p>Graduated with 3.76 out of 4 CGPA. Won Acme Hackathon. Organized 30 sessions.</p>
@@ -293,23 +290,22 @@
             </section>
         </main>
 
-        <!-- Footer Section: Reviews -->
         <section class="reviews-section">
             <h2>Reviews from my Teachers</h2>
             <div class="cards-container">
-                <!-- Card 1 -->
+
                 <div class="review-card">
                     <p class="review-text">John doe was a brilliant student; always stood out with his assignments.</p>
                     <p class="author-name">Jane Doe</p>
                     <p class="author-title">Assistant Professor</p>
                 </div>
-                <!-- Card 2 -->
+
                 <div class="review-card">
                     <p class="review-text">John doe was a brilliant student; always stood out with his assignments.</p>
                     <p class="author-name">Jane Doe</p>
                     <p class="author-title">Assistant Professor</p>
                 </div>
-                <!-- Card 3 -->
+
                 <div class="review-card">
                     <p class="review-text">John doe was a brilliant student; always stood out with his assignments.</p>
                     <p class="author-name">Jane Doe</p>

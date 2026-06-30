@@ -44,7 +44,7 @@
             flex-wrap: wrap;
         }
 
-        /* Card Styles */
+
         .card {
             background: #ffffff;
             border: 2px solid var(--border-color);
@@ -56,24 +56,24 @@
             align-items: center;
             position: relative;
             box-shadow: 0 4px 0px rgba(0, 0, 0, 0.05);
-            /* ANIMATION: Smooth transition for card movement */
+
             transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
         }
 
-        /* ANIMATION: Card Lift on Hover */
+
         .card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
         }
 
-        /* "Most popular" Featured Card Adjustments */
+
         .card.featured {
             box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.08);
             margin-top: -15px;
             padding-top: 55px;
         }
 
-        /* ANIMATION: Featured Card Lift on Hover */
+
         .card.featured:hover {
             transform: translateY(-23px);
             box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.12);
@@ -91,7 +91,7 @@
             border: 2px solid var(--border-color);
         }
 
-        /* Typography */
+
         .plan-name {
             font-size: 24px;
             font-weight: 800;
@@ -152,7 +152,7 @@
             margin-bottom: 24px;
         }
 
-        /* Features List */
+
         .features-list {
             list-style: none;
             width: 100%;
@@ -170,35 +170,35 @@
             color: var(--text-dark);
             font-weight: 500;
             cursor: pointer;
-            /* ANIMATION: Smooth transition for option hover */
+
             transition: transform 0.2s ease, color 0.2s ease;
         }
 
-        /* Custom SVG Checkmark Icon */
+
         .check-icon {
             width: 20px;
             height: 20px;
             margin-right: 12px;
             flex-shrink: 0;
-            /* ANIMATION: Smooth transition for icon color changes */
+
             transition: color 0.2s ease, transform 0.2s ease;
         }
 
-        /* ANIMATION: When cursor touches any option/feature item */
+
         .feature-item:hover {
             color: #000000;
             transform: translateX(4px);
-            /* Shifts text slightly to the right */
+
         }
 
         .feature-item:hover .check-icon {
             color: var(--primary-orange);
-            /* Turns checkmark orange */
+
             transform: scale(1.1);
-            /* Gently enlarges checkmark */
+
         }
 
-        /* Action Buttons */
+
         .btn {
             width: 100%;
             padding: 14px;
@@ -209,7 +209,7 @@
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            /* ANIMATION: Smooth transition for button colors and sizes */
+
             transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
         }
 
@@ -218,7 +218,7 @@
             color: var(--text-dark);
         }
 
-        /* ANIMATION: Outline button hover state */
+
         .btn-outline:hover {
             background-color: var(--text-dark);
             color: #ffffff;
@@ -229,18 +229,19 @@
             color: #ffffff;
         }
 
-        /* ANIMATION: Solid button hover state */
+
         .btn-solid:hover {
             background-color: #dc533c;
             box-shadow: 0 4px 12px rgba(239, 100, 77, 0.3);
         }
 
-        /* ANIMATION: Click physical effect for buttons */
+
         .btn:active {
             transform: scale(0.96);
         }
 
-        /* Responsive breakdown for smaller screens */
+
+
         @media (max-width: 980px) {
             .card.featured {
                 margin-top: 0;
